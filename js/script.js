@@ -66,7 +66,16 @@ function printQuote() {
 	}
 
 	//Closing out paragraph tag and printing each quotes tags
-	html += `</p><p class="tags"> Tags: ${quote.tags} </p>`;
+	html += `</p><p class="tags"> Tags: ${quote.tags.join(', ')} </p>`;
+
+	//Creating random rgb values and then setting background color
+	let r = Math.floor(Math.random() * 255);
+	let g = Math.floor(Math.random() * 255);
+	let b = Math.floor(Math.random() * 255);
+	document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+
+	//Creating 30 second timeout
+	window.setInterval(printQuote, 30000);
 
 	//Inserting html into webpage
 	document.getElementById('quote-box').innerHTML = html;
